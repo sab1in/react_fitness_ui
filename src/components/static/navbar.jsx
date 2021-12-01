@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const links = [
   {
@@ -31,6 +31,8 @@ const Navbar = () => {
   const [menu, setMenu] = useState(window.innerWidth < 650 ? true : false);
   const [openMenu, setOpenMenu] = useState(false);
 
+  const burger = useRef();
+
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth < 650) {
@@ -43,11 +45,15 @@ const Navbar = () => {
   });
 
   const handleToggleMenu = () => {
+    burger.current.style.transform = openMenu
+      ? "rotate(180deg)"
+      : "rotate(-180deg)";
+    burger.current.style.transition = "transform .5s ease-in-out";
     setOpenMenu(!openMenu);
   };
   return (
     <>
-      <div className="bg-black font-Nunito">
+      <div className="bg-black w-full font-Nunito fixed top-0 z-20">
         <div
           className={`flex flex-col sm:flex-row w-11/12 ${
             openMenu ? "h-96" : "h-12"
@@ -59,10 +65,41 @@ const Navbar = () => {
             </div>
             {menu && (
               <div
+                ref={burger}
                 className="cursor-pointer"
                 onClick={() => handleToggleMenu()}
               >
-                Menu
+                {!openMenu ? (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                )}
               </div>
             )}
           </div>
