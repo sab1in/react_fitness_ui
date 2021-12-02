@@ -35,7 +35,7 @@ const Navbar = () => {
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth < 650) {
+      if (window.innerWidth < 640) {
         setMenu(true);
       } else {
         setMenu(false);

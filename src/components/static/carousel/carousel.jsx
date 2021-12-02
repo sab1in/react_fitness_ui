@@ -38,32 +38,32 @@ const Carousel = () => {
     };
   });
 
-  const handleTouchStart = (e) => {
-    console.log(e);
-  };
-  const handleTouchMove = (e) => {
-    console.log(e);
-  };
-  const handleTouchEnd = (e) => {
-    console.log(e);
-    console.log("hello");
-  };
+  // const handleTouchStart = (e) => {
+  //   console.log(e);
+  // };
+  // const handleTouchMove = (e) => {
+  //   console.log(e);
+  // };
+  // const handleTouchEnd = (e) => {
+  //   console.log(e);
+  //   console.log("hello");
+  // };
   return (
     <>
       <section
         className="home font-Nunito mt-12 sm:mt-14 overflow-hidden "
         id="home"
       >
-        <div className="home-slider relative transition-all duration-500">
+        <div className="home-slider relative ">
           <div
-            onTouchStart={(e) => console.log(e)}
-            onTouchMove={(e) => handleTouchMove(e)}
-            onTouchEnd={(e) => handleTouchEnd(e)}
+            // onTouchStart={(e) => console.log(e)}
+            // onTouchMove={(e) => handleTouchMove(e)}
+            // onTouchEnd={(e) => handleTouchEnd(e)}
             style={{
               width: 3 * width,
               left: -activeSlide * width,
             }}
-            className="wrapper flex relative "
+            className="wrapper flex relative transition-all duration-500"
           >
             {Array.isArray(carouselImage) &&
               carouselImage.map((item, index) => {
@@ -74,7 +74,7 @@ const Carousel = () => {
                     style={{ background: `url(${item.image}) no-repeat` }}
                   >
                     <div className="content">
-                      <span>be strong, be fit</span>
+                      <span>Be strong, Be fit</span>
                       <h3>Make yourself stronger than your excuses.</h3>
                       <div className="btn">get started</div>
                     </div>

@@ -13,6 +13,11 @@ module.exports = {
       },
       fontFamily: {
         Nunito: ["Nunito"],
+      },
+      height:{
+        600: '600px',
+        300: '300px',
+        400: '400px'
       }
     },
   },

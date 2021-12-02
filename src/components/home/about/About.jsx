@@ -25,8 +25,15 @@ const About = () => {
     <div className="bg-black1 pb-10 text-white font-Nunito">
       <div className="flex flex-col lg:flex-row w-10/12 mx-auto pt-10  gap-20 ">
         <div className="w-full lg:w-1/2">
-          <div className="mt-10 relative">
-            <img className="z-10 w-full relative" src={aboutImage} />
+          <div
+            style={{ minHeight: 300, minWidth: 200 }}
+            className="mt-10  relative"
+          >
+            <img
+              className="z-10 w-full bg-lightBg relative"
+              src={aboutImage}
+              alt=""
+            />
             <div className="w-40 h-40 bg-red1 absolute -left-5 -top-5"></div>
             <div className="w-40 h-40 bg-red1 -right-5 absolute -bottom-5"></div>
           </div>
