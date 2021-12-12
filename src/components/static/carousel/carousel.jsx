@@ -33,8 +33,17 @@ const Carousel = () => {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
+    const interval = setInterval(function () {
+      if (activeSlide === 2) {
+        setActiveSlide(0);
+      } else {
+        setActiveSlide(activeSlide + 1);
+      }
+    }, 5000);
+
     return () => {
       window.removeEventListener("resize", handleResize);
+      clearInterval(interval);
     };
   });
 
